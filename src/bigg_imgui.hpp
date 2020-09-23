@@ -72,8 +72,13 @@ static void imguiInit( GLFWwindow* window )
 	io.SetClipboardTextFn = imguiSetClipboardText;
 	io.GetClipboardTextFn = imguiGetClipboardText;
 	io.ClipboardUserData = gWindow;
+
+
+	ImGuiViewport* mainViewport = ImGui::GetMainViewport();
+	mainViewport->PlatformHandle = gWindow;
+
 #if BX_PLATFORM_WINDOWS
-	io.ImeWindowHandle = ( void* )glfwGetWin32Window( gWindow );
+	mainViewport->PlatformHandleRaw = ( void* )glfwGetWin32Window( gWindow );
 #endif
 
 	gMouseCursors[ ImGuiMouseCursor_Arrow ] = glfwCreateStandardCursor( GLFW_ARROW_CURSOR );
