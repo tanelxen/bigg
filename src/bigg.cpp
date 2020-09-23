@@ -224,14 +224,16 @@ int bigg::Application::run( int argc, char** argv, bgfx::RendererType::Enum type
 	reset();
 	initialize( argc, argv );
 
+
 	// Loop until the user closes the window
-	float lastTime = 0;
-	float dt;
-	float time;
+	double lastTime = 0;
+	double dt;
+	double time;
 	while ( !glfwWindowShouldClose( mWindow ) )
 	{
-		time = ( float )glfwGetTime();
+		time = glfwGetTime();
 		dt = time - lastTime;
+
 		lastTime = time;
 
 		glfwPollEvents();
@@ -316,3 +318,5 @@ float bigg::Application::getMouseWheel() const
 {
 	return mMouseWheel;
 }
+
+
