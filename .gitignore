@@ -1,2 +1,8 @@
 build/
 *.swp
+[Dd]ebug/
+[Rr]elease/
+CMakeFiles/
+*.vcxproj*
+*.sln
+deps/cmake_install.cmake
