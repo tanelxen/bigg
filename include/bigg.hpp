@@ -89,6 +89,7 @@ namespace bigg
 	protected:
 		GLFWwindow* mWindow;
 		bigg::Allocator mAllocator;
+		float mFpsLock;
 	private:
 		uint32_t mReset;
 		uint32_t mWidth;

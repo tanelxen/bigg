@@ -19,6 +19,8 @@
 #include <GLFW/glfw3native.h>
 #include <glm/glm.hpp>
 #include <fstream>
+#include <thread>
+#include <chrono>
 
 #include "bigg_assets.h"
 #include "bigg_shaders.hpp"
@@ -243,6 +245,12 @@ int bigg::Application::run( int argc, char** argv, bgfx::RendererType::Enum type
 		ImGui::Render();
 		imguiRender( ImGui::GetDrawData() );
 		bgfx::frame();
+
+		float frameTime = glfwGetTime() - time;
+		if (mFpsLock > 0)
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds((int)(1000.0f / mFpsLock - frameTime * 1000) ));
+		}
 	}
 
 	// Shutdown application and glfw
