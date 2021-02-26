@@ -5,4 +5,5 @@ build/
 CMakeFiles/
 *.vcxproj*
 *.sln
-deps/cmake_install.cmake
+*.bin
+cmake_install.cmake
