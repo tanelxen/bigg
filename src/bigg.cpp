@@ -4,6 +4,7 @@
 
 #include <bigg.hpp>
 
+#include <bgfx/platform.h>
 #if BX_PLATFORM_LINUX || BX_PLATFORM_BSD
 #	define GLFW_EXPOSE_NATIVE_X11
 #	define GLFW_EXPOSE_NATIVE_GLX
@@ -15,7 +16,6 @@
 #	define GLFW_EXPOSE_NATIVE_WGL
 #endif // BX_PLATFORM_
 #include <bx/math.h>
-#include <bgfx/platform.h>
 #include <GLFW/glfw3native.h>
 #include <glm/glm.hpp>
 #include <fstream>
