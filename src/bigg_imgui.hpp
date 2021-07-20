@@ -2,6 +2,7 @@
  * This is free and unencumbered software released into the public domain. 
  */
 
+#include <glm/ext/matrix_clip_space.hpp>
 static bgfx::VertexLayout  imguiVertexLayout;
 static bgfx::TextureHandle imguiFontTexture;
 static bgfx::UniformHandle imguiFontUniform;
@@ -154,6 +155,8 @@ static void imguiEvents( float dt )
 
 static void imguiRender( ImDrawData* drawData )
 {
+	glm::mat4 proj = glm::ortho(drawData->DisplayPos.x, drawData->DisplayPos.x + drawData->DisplaySize.x, drawData->DisplayPos.y + drawData->DisplaySize.y, drawData->DisplayPos.y);
+	bgfx::setViewTransform(200, 0, &proj[0][0]);
 	for ( int ii = 0, num = drawData->CmdListsCount; ii < num; ++ii )
 	{
 		bgfx::TransientVertexBuffer tvb;
